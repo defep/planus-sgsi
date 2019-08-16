@@ -23,6 +23,8 @@
                         </tr>
                         @endforeach
                     </table>
+
+                    <a href="{{ url('assets/create') }}" class="btn btn-primary">Crear</a>
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        //
+        return view("asset.create");
     }
 
     /**
@@ -36,7 +36,13 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'description' => '',
+        ]);
+        $asset = Asset::create($validatedData);
+
+        return redirect('/assets')->with('success', 'El activo fue guardado');
     }
 
     /**
