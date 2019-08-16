@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/asset', 'AssetController@index')->name('asset');
+Route::get('/threat', 'ThreatController@index')->name('threat');
