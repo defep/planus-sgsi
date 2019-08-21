@@ -12,14 +12,25 @@
                     <table class="table">
                         <tr>
                             <th>Nombre</th>
+                            <th>Descripción</th>
                             <th>Creación</th>
                             <th>Modificación</th>
+                            <th></th>
                         </tr>
                         @foreach ($assets as $asset)
                         <tr>
                             <td>{{ $asset->name }}</td>
+                            <td>{{ $asset->description }}</td>
                             <td>{{ $asset->created_at }}</td>
                             <td>{{ $asset->updated_at }}</td>
+                            <td><a href="{{ route('assets.edit',$asset->id) }}" class="btn btn-sm btn-primary">Editar</a></td>
+                            <td>
+                                <form action="{{ route('assets.destroy', $asset->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

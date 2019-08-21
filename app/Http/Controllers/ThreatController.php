@@ -25,7 +25,7 @@ class ThreatController extends Controller
      */
     public function create()
     {
-        //
+        return view("threat.create");
     }
 
     /**
@@ -36,7 +36,13 @@ class ThreatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'description' => '',
+        ]);
+        $threat = Threat::create($validatedData);
+
+        return redirect('/threats')->with('success', 'El activo fue guardado');
     }
 
     /**
