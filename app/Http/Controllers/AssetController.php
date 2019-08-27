@@ -64,7 +64,8 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
-        //
+        $data["asset"] = $asset;
+        return view("asset.edit", $data);
     }
 
     /**
@@ -76,7 +77,13 @@ class AssetController extends Controller
      */
     public function update(Request $request, Asset $asset)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => ''
+        ]);
+        Asset::whereId($asset->id)->update($validatedData);
+
+        return redirect('/assets')->with('success', 'El activo fue actualizado');
     }
 
     /**
@@ -87,6 +94,7 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
-        //
+        $asset->delete();
+        return redirect('/assets')->with('success', 'El activo fue eliminado');
     }
 }
