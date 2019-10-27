@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\AssetType;
 use Illuminate\Http\Request;
 
 class AssetController extends Controller
@@ -30,7 +31,8 @@ class AssetController extends Controller
      */
     public function create()
     {
-        return view("asset.create");
+        $data["types"] = AssetType::all();
+        return view("asset.create", $data);
     }
 
     /**
@@ -44,6 +46,7 @@ class AssetController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:100',
             'description' => '',
+            'asset_type_id' => 'required'
         ]);
         $asset = Asset::create($validatedData);
 

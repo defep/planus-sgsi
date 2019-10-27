@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -13,14 +13,17 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Tipo</th>
                             <th>Creación</th>
                             <th>Modificación</th>
+                            <th></th>
                             <th></th>
                         </tr>
                         @foreach ($assets as $asset)
                         <tr>
                             <td>{{ $asset->name }}</td>
                             <td>{{ $asset->description }}</td>
+                            <td>{{ $asset->type()->first()->name }}</td>
                             <td>{{ $asset->created_at }}</td>
                             <td>{{ $asset->updated_at }}</td>
                             <td><a href="{{ route('assets.edit',$asset->id) }}" class="btn btn-sm btn-primary">Editar</a></td>

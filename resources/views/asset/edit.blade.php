@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="price">Descripción:</label>
-                            <input type="text" class="form-control" name="description" value="{{ $asset->description }}" />
+                            <textarea class="form-control" name="description">{{ $asset->description }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
