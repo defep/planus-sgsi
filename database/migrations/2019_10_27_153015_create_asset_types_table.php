@@ -18,20 +18,6 @@ class CreateAssetTypesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
-
-        DB::table('asset_types')->insert(
-            array(
-                array('name' => 'Personas'),
-                array('name' => 'Aplicaciones (software)'),
-                array('name' => 'Aplicaciones (hardware)'),
-                array('name' => 'Servicios'),
-                array('name' => 'Información'),
-                array('name' => 'Datos'),
-                array('name' => 'Comunicaciones'),
-                array('name' => 'Recursos administrativos'),
-                array('name' => 'Recursos físicos')
-            )
-        );
     }
 
     /**
