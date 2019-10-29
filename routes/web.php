@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('assets', 'AssetController');
 Route::resource('threats', 'ThreatController');
+Route::resource('security-plans', 'SecurityPlanController');
