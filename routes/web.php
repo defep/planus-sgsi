@@ -19,6 +19,14 @@ Route::get('/', function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::resource('assets', 'AssetController');
 Route::resource('threats', 'ThreatController');
 Route::resource('security-plans', 'SecurityPlanController');
+Route::resource('configuration', 'ConfigurationController');
+Route::resource('people', 'PeopleController');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+});

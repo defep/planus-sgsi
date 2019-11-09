@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/dashboard') }}">
                     {{ config('app.name', 'Planus') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,9 +36,9 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{{ url('assets') }}">{{ __('Assets') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('threats') }}">{{ __('Threats') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('threats') }}">{{ __('Safeguards') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('safeguards') }}">{{ __('Safeguards') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('security-plans') }}">{{ __('Security Plans') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('threats') }}">{{ __('People') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('people') }}">{{ __('People') }}</a></li>
                     </ul>
                     @endauth
 
@@ -61,6 +61,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('configuration') }}">{{ __('Configuration') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
