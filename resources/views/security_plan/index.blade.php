@@ -15,13 +15,17 @@
                             <th>Descripción</th>
                             <th>Fecha arranque</th>
                             <th>Fecha fin</th>
+                            <th>Opciones</th>
                         </tr>
-                        @foreach ($security_plans as $security_plan)
+                        @foreach ($plans as $plan)
                         <tr>
-                            <td>{{ $security_plan->name }}</td>
-                            <td>{{ $security_plan->description }}</td>
-                            <td>{{ $security_plan->from }}</td>
-                            <td>{{ $security_plan->to }}</td>
+                            <td>{{ $plan->name }}</td>
+                            <td>{{ $plan->description }}</td>
+                            <td>{{ $plan->from }}</td>
+                            <td>{{ $plan->to }}</td>
+                            <td>
+                                <a href="{{ route('security-plans.edit',$plan->id) }}" class="btn btn-sm btn-primary">Editar</a>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

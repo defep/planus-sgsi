@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSecurityPlansTable extends Migration
+class CreateSafeguardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateSecurityPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('security_plans', function (Blueprint $table) {
+        Schema::create('safeguards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->longText('description')->nullable();
-            $table->longText('observation')->nullable();
-            $table->date('from')->nullable();
-            $table->date('to')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateSecurityPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('security_plans');
+        Schema::dropIfExists('safeguards');
     }
 }

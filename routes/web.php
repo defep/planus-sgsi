@@ -29,4 +29,5 @@ Route::resource('people', 'PeopleController');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('safeguards', 'SafeguardController');
 });

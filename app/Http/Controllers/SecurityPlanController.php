@@ -19,7 +19,7 @@ class SecurityPlanController extends Controller
      */
     public function index()
     {
-        $data["security_plans"] = SecurityPlan::get();
+        $data["plans"] = SecurityPlan::get();
         return view("security_plan.index", $data);
     }
 
@@ -44,5 +44,23 @@ class SecurityPlanController extends Controller
         $security_plan = SecurityPlan::create($validatedData);
 
         return redirect('/security-plans')->with('success', 'El plan fue guardado');
+    }
+
+    public function edit(SecurityPlan $security_plan)
+    {
+        $data["security_plan"] = $security_plan;
+        return view("security_plan.edit", $data);
+    }
+
+    public function update(Request $request, SecurityPlan $security_plan)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => '',
+            'observation' => ''
+        ]);
+        SecurityPlan::whereId($security_plan->id)->update($validatedData);
+
+        return redirect('/security-plans')->with('success', 'El plan de seguridad fue actualizado');
     }
 }
