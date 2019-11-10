@@ -8,10 +8,13 @@
 # Install dependencies
 composer install
 
-# Add the .env file and change DB params
+# Rename .env.example file to .env and change DB params
 
-# Create schema
+# Run the database migrations
 php artisan migrate
+
+# Seed the database with records
+php artisan db:seed
 
 # Run Laravel server
 php artisan serve
