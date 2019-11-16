@@ -34,11 +34,11 @@
                     <!-- Left Side Of Navbar -->
                     @auth
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{ url('assets') }}">{{ __('Assets') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('threats') }}">{{ __('Threats') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('safeguards') }}">{{ __('Safeguards') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('security-plans') }}">{{ __('Security Plans') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('people') }}">{{ __('People') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('assets') }}">{{ __('main.assets') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('threats') }}">{{ __('main.threats') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('safeguards') }}">{{ __('main.safeguards') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('security-plans') }}">{{ __('main.security_plans') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('people') }}">{{ __('main.people') }}</a></li>
                     </ul>
                     @endauth
 
