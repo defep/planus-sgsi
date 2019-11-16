@@ -48,6 +48,7 @@ class ThreatController extends Controller
             'description' => '',
         ]);
         $threat = Threat::create($validatedData);
+        $threat->asset_types()->attach($request->asset_types);
 
         return redirect('/threats')->with('success', 'El activo fue guardado');
     }
@@ -71,7 +72,8 @@ class ThreatController extends Controller
      */
     public function edit(Threat $threat)
     {
-        //
+        $data["threat"] = $threat;
+        return view("threat.edit", $data);
     }
 
     /**
@@ -83,7 +85,13 @@ class ThreatController extends Controller
      */
     public function update(Request $request, Threat $threat)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => ''
+        ]);
+        Threat::whereId($threat->id)->update($validatedData);
+
+        return redirect('/threats')->with('success', 'El threat fue actualizado');
     }
 
     /**

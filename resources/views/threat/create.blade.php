@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label for="price">Tipos de activos amenazados:</label>
-                            <select multiple name="asset_types" class="form-control">
+                            <select multiple name="asset_types[]" class="form-control">
                                 @foreach($asset_types as $type)
                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach

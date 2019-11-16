@@ -13,15 +13,19 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Descripción</th>
-                            <th>Creación</th>
-                            <th>Modificación</th>
+                            <th>Assets affected</th>
+                            <th></th>
                         </tr>
-                        @foreach ($threats as $asset)
+                        @foreach ($threats as $threat)
                         <tr>
-                            <td>{{ $asset->name }}</td>
-                            <td>{{ $asset->description }}</td>
-                            <td>{{ $asset->created_at }}</td>
-                            <td>{{ $asset->updated_at }}</td>
+                            <td>{{ $threat->name }}</td>
+                            <td>{{ $threat->description }}</td>
+                            <td>
+                                @foreach ($threat->asset_types as $asset_type)
+                                    {{$asset_type->name}}
+                                @endforeach
+                            </td>
+                            <td><a href="{{ route('threats.edit',$threat->id) }}" class="btn btn-sm btn-primary">Editar</a></td>
                         </tr>
                         @endforeach
                     </table>

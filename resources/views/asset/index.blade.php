@@ -14,8 +14,7 @@
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Tipo</th>
-                            <th>Creación</th>
-                            <th>Modificación</th>
+                            <th>Amenazas</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -24,8 +23,11 @@
                             <td>{{ $asset->name }}</td>
                             <td>{{ $asset->description }}</td>
                             <td>{{ $asset->type()->first()->name }}</td>
-                            <td>{{ $asset->created_at }}</td>
-                            <td>{{ $asset->updated_at }}</td>
+                            <td>
+                            @foreach ($asset->type->threats as $threat)
+                                {{ $threat->name }}
+                            @endforeach
+                            </td>
                             <td><a href="{{ route('assets.edit',$asset->id) }}" class="btn btn-sm btn-primary">Editar</a></td>
                             <td>
                                 <form action="{{ route('assets.destroy', $asset->id) }}" method="post">
